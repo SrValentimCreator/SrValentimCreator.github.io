@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apostas Garantidas - Grupo VIP de Tips</title>
+  <!-- Meta Tags para Redes Sociais -->
+  <meta property="og:title" content="Apostas Garantidas - Grupo VIP">
+  <meta property="og:description" content="Dicas exclusivas para lucrar em apostas esportivas!">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e">
+  <meta property="og:url" content="https://apostasgarantidas.pages.dev">
+  <!-- Favicon e Fontes -->
+  <link rel="icon" href="assets/logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #28a745;
+      --primary-dark: #218838;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('assets/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+    .logo {
+      max-width: 180px;
+      margin: 0 auto 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8em;
+      margin: 10px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .countdown {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #ffcc00;
+      font-weight: bold;
+    }
+    .button {
+      background: var(--primary);
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px 0;
+      transition: all 0.3s;
+    }
+    .button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .button { padding: 12px 25px; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img src="assets/logo.jpg" alt="Apostas Garantidas" class="logo">
+    <h1>APOSTAS GARANTIDAS</h1>
+    <p>Transforme apostas em lucro com nossas dicas VIP!</p>
+    <div class="countdown" id="countdown">ÚLTIMAS VAGAS! Fechamento em: <span id="time">24h 00m</span></div>
+    <a href="https://t.me/+otOXpHuJPOMxYzQx" class="button" target="_blank">
+      <i class="fab fa-telegram"></i> ENTRAR NO GRUPO
+    </a>
+  </div>
+
+  <!-- Botão Flutuante -->
+  <div class="floating-button">
+    <a href="https://t.me/+otOXpHuJPOMxYzQx" class="button" target="_blank">
+      <i class="fab fa-telegram"></i> QUERO ENTRAR AGORA
+    </a>
+  </div>
+
+  <script>
+    // Contador Regressivo (24 horas)
+    const countdown = document.getElementById('countdown');
+    const timeDisplay = document.getElementById('time');
+    const targetTime = new Date();
+    targetTime.setHours(targetTime.getHours() + 24);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetTime - now;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      
+      if (diff <= 0) {
+        countdown.innerHTML = "VAGAS ESGOTADAS!";
+      } else {
+        timeDisplay.textContent = `${hours}h ${Math.floor(minutes)}m`;
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
